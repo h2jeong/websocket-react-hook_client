@@ -1,0 +1,23 @@
+{
+  "name": "wrhc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/h2jeong/websocket-react-hook_client.git",
+  "author": "Zoe <heejeong.cho@stryx.co.kr>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0"
+  }
+}
