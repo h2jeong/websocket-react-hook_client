@@ -27,16 +27,39 @@ const Chat = ({match}) => {
 
     function onOpen(e) {
         console.log('socket ready state', socket.current.readyState)
+        socket.current.send(
+            JSON.stringify({
+                type: 'connect',
+                user
+            })
+        )
     }
     function onClose(e) {}
     function onMessage(e) {
-        console.log(e.data)
+        const data = JSON.parse(e.data);
+        console.log(data);
+        switch (data.type) {
+            case 'say':
+                setMessages((prev) => [...prev, data]);
+                break;
+            default:
+                break;
+        }
     }
 
     const sendMessage = (e) => {
+        const { recipient } = match.params;
+        console.log(recipient);
         e.preventDefault();
-
-        console.log(match.params)
+        socket.current.send(
+            JSON.stringify({
+                type: 'say',
+                sender: user,
+                recipient,
+                text: message
+            })
+        );
+        setMessage('')
     }
 
     return (
