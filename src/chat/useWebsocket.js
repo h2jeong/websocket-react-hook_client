@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 const useWebsocket = ({ url, onConnected }) => {
     const socket = useRef(null);
     const [messages, setMessages] = useState([]);
     const [reconnecting, setReconnecting] = useState(false)
-
+    console.log(messages)
     useEffect(() => {
         console.log('running socket hook');
         socket.current = new WebSocket(url);

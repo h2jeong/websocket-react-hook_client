@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { withRouter } from 'react-router-dom';
 import useWebsocket from './useWebsocket'
@@ -22,6 +22,8 @@ const Chat = ({match}) => {
         const { recipient } = match.params;
         console.log(recipient);
         e.preventDefault();
+        if (message.length < 1) return;
+
         socket.send(
             JSON.stringify({
                 type: 'say',
